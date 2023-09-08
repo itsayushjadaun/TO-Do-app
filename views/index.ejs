@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <title>ToDO</title>
+    <%- include('./partials/head') %>
+  </head>
+  <body>
+      <%- include('./partials/navbar') %>
+      <form action="/add/todo" method="post">
+            <div class="container mt-3 w-50" >
+                  <div class="input-group mb-5 ">
+                        <input type="text" name="todo" class="form-control" placeholder="Add Your Task...">
+                        <button type="submit" value="Add todo" name="btm" class="btn btn-primary">Add</button>
+                      </div>
+         </form>
+       
+         <ul class="list-group">
+            <% todo.forEach(todos => { %>
+                  <li class="list-group-item"><%= todos.todo %> <a href="/delete/todo/<%= todos._id %>" class="btn btn-light btn-sm" style="float: right;" >delete</a></li>
+                 
+            <% }) %>
+          </ul>
+          <img src="https://www.google.com/search?sca_esv=563635297&sxsrf=AB5stBiuAxRZDHoeeQhpg7MBigLgQsIN-w:1694158430328&q=image&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjk-rr7v5qBAxXPZWwGHTwSDNUQ0pQJegQICxAB&biw=1600&bih=932&dpr=2#imgrc=YmDohMp4T5AODM" class="img-fluid" alt="...">
+         </div>
+
+      <%- include('./partials/script') %>
+  </body>
+</html>
